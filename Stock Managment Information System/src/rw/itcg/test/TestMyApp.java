@@ -10,7 +10,6 @@ public class TestMyApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//testing git
 		System.out.println("Hello");
 
 	}
