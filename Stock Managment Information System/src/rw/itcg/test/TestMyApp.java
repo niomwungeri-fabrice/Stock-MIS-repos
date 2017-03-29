@@ -15,6 +15,7 @@ public class TestMyApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+	try {
 		@SuppressWarnings("resource")
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:rw/itcg/config/app-context.xml");
 		UserService uService = context.getBean(UserService.class);
@@ -25,8 +26,10 @@ public class TestMyApp {
 		u.setPhone("+2578521255");
 		u.setState(true);
 		u.setUsername("mtee");
-		u.setState(true);
 		System.out.println(uService.createUser(u));
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
 	}
 
 }
