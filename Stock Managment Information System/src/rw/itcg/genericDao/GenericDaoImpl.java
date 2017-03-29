@@ -3,13 +3,15 @@ package rw.itcg.genericDao;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-public class GenericDaoImpl<G extends Serializable> implements GenericDao<G> {
+public abstract class GenericDaoImpl<G extends Serializable> implements GenericDao<G> {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -37,6 +39,7 @@ public class GenericDaoImpl<G extends Serializable> implements GenericDao<G> {
 	@Override
 	public G delete(G g) {
 		sessionfactory().delete(g);
+		sessionfactory().flush();
 		return g;
 	}
 
@@ -55,6 +58,12 @@ public class GenericDaoImpl<G extends Serializable> implements GenericDao<G> {
 		sessionfactory().update(g);
 		sessionfactory().flush();
 		return g;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<G> findAll() {
+		return sessionfactory().createCriteria(this.type).list();
 	}
 
 }

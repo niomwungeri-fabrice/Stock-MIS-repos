@@ -1,9 +1,12 @@
-package rw.itcg.genericDao;
+package rw.itcg.service;
 
 import java.io.Serializable;
 import java.util.List;
 
-public interface GenericDao<G extends Serializable> {
+/**
+ * @author NIYOMWUNGERI Mar 29, 2017, 4:19:53 PM
+ */
+public interface IGenericService<G extends Serializable> {
 
 	G save(final G g);
 
@@ -16,5 +19,4 @@ public interface GenericDao<G extends Serializable> {
 	List<G> findAll();
 
 	Long countRows();
-
 }

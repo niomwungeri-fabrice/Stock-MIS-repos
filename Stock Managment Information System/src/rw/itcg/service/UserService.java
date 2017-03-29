@@ -1,17 +1,15 @@
 package rw.itcg.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import rw.itcg.dao.UserDaoImpl;
 import rw.itcg.domain.User;
 import rw.itcg.exceptionHandling.ManageExceptions;
 
 /**
- * @author NIYOMWUNGERI Mar 28, 2017, 8:50:49 PM
+ * @author NIYOMWUNGERI Mar 29, 2017, 4:24:13 PM
  */
-@Service
-public class UserService extends TransactionAware {
+public class UserService {
 	@Autowired
 	private UserDaoImpl userDao;
 
@@ -23,5 +21,4 @@ public class UserService extends TransactionAware {
 			throw new ManageExceptions(e.getMessage());
 		}
 	}
-
 }

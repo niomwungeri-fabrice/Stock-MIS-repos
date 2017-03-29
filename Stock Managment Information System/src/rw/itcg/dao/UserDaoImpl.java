@@ -1,5 +1,8 @@
 package rw.itcg.dao;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import rw.itcg.domain.User;
@@ -9,39 +12,20 @@ import rw.itcg.genericDao.GenericDaoImpl;
  * @author NIYOMWUNGERI Mar 28, 2017, 8:42:17 PM
  */
 @Repository
-public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
+public class UserDaoImpl extends GenericDaoImpl<User> implements IUserDao {
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public User save(User g) {
-		sessionfactory().save(g);
-		sessionfactory().flush();
-		return g;
+	public List<User> findByIdList(String username) {
+		Query query = sessionfactory().createQuery("FROM User u where u.username:=username");
+		return query.list();
 	}
 
 	@Override
-	public User update(User g) {
-		sessionfactory().update(g);
-		sessionfactory().flush();
-		return g;
-	}
-
-	@Override
-	public User delete(User g) {
-		sessionfactory().delete(g);
-		sessionfactory().flush();
-		return g;
-	}
-
-	@Override
-	public User findOne(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Long countRows() {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean isUserRegister(String username) {
+		Query query = sessionfactory().createQuery("select 'A' from User u where username=:username");
+		query.setParameter("username", username);
+		return query.list().size() > 0;
 	}
 
 }

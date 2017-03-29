@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import rw.itcg.domain.User;
-import rw.itcg.service.UserService;
+import rw.itcg.service.GenericServiceImpl;
 
 /**
  * @author NIYOMWUNGERI Mar 28, 2017, 7:48:34 PM
@@ -18,7 +18,7 @@ public class TestMyApp {
 	try {
 		@SuppressWarnings("resource")
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:rw/itcg/config/app-context.xml");
-		UserService uService = context.getBean(UserService.class);
+		GenericServiceImpl uService = context.getBean(GenericServiceImpl.class);
 		User u = new User();
 		u.setFirstName("Mutangana");
 		u.setLastName("Jean D'amour");
