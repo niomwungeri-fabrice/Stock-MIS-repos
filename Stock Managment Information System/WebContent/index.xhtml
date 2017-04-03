@@ -15,14 +15,10 @@
 		<div class="jumbotron" style="background-color: #3790fc" />
 		<h:form>
 			<div class="row">
+				<div class="col-xs-6"></div>
 				<div class="col-xs-6">
-					
-				</div>
-				<div class="col-xs-6">
-					<p:fieldset legend="Quote of the day!" style="margin-bottom:20px">
-						<h:panelGrid columns="2" cellpadding="5">
-							<h:outputText value="#{generateQuotes.generateRandomQuotes}" />
-						</h:panelGrid>
+					<p:fieldset legend="Quote of the Day!" style="margin-top:100px">
+						<h:outputLabel value="#{generateQuotes.qaute}" />
 					</p:fieldset>
 				</div>
 			</div>
