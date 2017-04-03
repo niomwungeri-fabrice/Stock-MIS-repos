@@ -2,9 +2,12 @@ package rw.itcg.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+
 /**
  * @author NIYOMWUNGERI Mar 28, 2017, 8:33:43 PM
  */
+@Entity
 public class User extends GenericDomain implements Serializable {
 
 	private static final long serialVersionUID = 1L;

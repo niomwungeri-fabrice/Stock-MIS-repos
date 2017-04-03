@@ -43,6 +43,7 @@ public abstract class GenericDaoImpl<G extends Serializable> implements GenericD
 		return g;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public G findOne(String id) {
 		return (G) sessionfactory().get(this.type, id);
