@@ -1,5 +1,7 @@
 package rw.itcg.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,14 @@ public class UserService extends TransactionAware {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ManageExceptions("User " + user.getFirstName() + " not created");
+		}
+	}
+
+	public List<User> findAll() {
+		try {
+			return userDao.findAll();
+		} catch (Exception e) {
+			throw new ManageExceptions("No user found!");
 		}
 	}
 }
