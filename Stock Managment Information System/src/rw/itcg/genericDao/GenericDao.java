@@ -1,9 +1,8 @@
 package rw.itcg.genericDao;
 
-import java.io.Serializable;
 import java.util.List;
 
-public interface GenericDao<G extends Serializable> {
+public interface GenericDao<G> {
 
 	G save(final G g);
 
@@ -16,5 +15,5 @@ public interface GenericDao<G extends Serializable> {
 	List<G> findAll();
 
 	Long countRows();
-
+	
 }

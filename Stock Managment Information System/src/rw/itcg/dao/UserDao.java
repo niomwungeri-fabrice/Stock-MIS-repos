@@ -9,23 +9,20 @@ import rw.itcg.domain.User;
 import rw.itcg.genericDao.GenericDaoImpl;
 
 /**
- * @author NIYOMWUNGERI Mar 28, 2017, 8:42:17 PM
+ * @author NIYOMWUNGERI Mar 29, 2017, 4:08:21 PM
  */
 @Repository
-public class UserDaoImpl extends GenericDaoImpl<User> implements IUserDao {
+public class UserDao extends GenericDaoImpl<User> {
 
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<User> findByIdList(String username) {
 		Query query = sessionfactory().createQuery("FROM User u where u.username:=username");
 		return query.list();
 	}
 
-	@Override
 	public boolean isUserRegister(String username) {
 		Query query = sessionfactory().createQuery("select 'A' from User u where username=:username");
 		query.setParameter("username", username);
 		return query.list().size() > 0;
 	}
-
 }
