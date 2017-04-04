@@ -15,7 +15,14 @@
 		<div class="jumbotron" style="background-color: #3790fc" />
 		<h:form>
 			<div class="row">
-				<div class="col-xs-6"></div>
+				<div class="col-xs-6">
+					<p:panel header="Register">
+						<h:panelGrid columns="3">
+							<p:watermark value="First name" for="firstname" />
+							<p:inputText id="firstname" value="" required="true" />
+						</h:panelGrid>
+					</p:panel>
+				</div>
 				<div class="col-xs-6">
 					<p:fieldset legend="Quote of the Day!" style="margin-top:100px">
 						<h:outputLabel value="#{generateQuotes.qaute}" />

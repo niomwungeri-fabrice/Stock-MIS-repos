@@ -12,6 +12,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class GenerateQuotes {
 
+	
 	public String getQaute() {
 		String[] array = {
 				"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do - Pele",
@@ -19,5 +20,6 @@ public class GenerateQuotes {
 		Random rand = new Random();
 		int lenngth = rand.nextInt(array.length);
 		return array[lenngth];
+
 	}
 }
