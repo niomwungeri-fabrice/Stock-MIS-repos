@@ -24,9 +24,9 @@ public class TestMyApp {
 			user.setFirstName("Mutangana");
 			user.setLastName("Jean D'amour");
 			user.setPassword("123456");
-			user.setPhone("+250783741086");
+			user.setPhone("+250783741085");
 			user.setState(true);
-			user.setUsername("mtee");
+			user.setUsername("fab");
 			String d = userService.createUser(user);
 			System.out.println(d);
 		} catch (Exception e) {

@@ -5,6 +5,11 @@ import java.util.Random;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import rw.itcg.dao.QuotesDao;
+import rw.itcg.service.QuoteService;
+
 /**
  * @author NIYOMWUNGERI Apr 3, 2017, 9:40:57 PM
  */
@@ -12,7 +17,6 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class GenerateQuotes {
 
-	
 	public String getQaute() {
 		String[] array = {
 				"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do - Pele",

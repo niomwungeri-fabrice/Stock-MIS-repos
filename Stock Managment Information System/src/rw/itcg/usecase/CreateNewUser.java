@@ -17,7 +17,7 @@ import rw.itcg.service.UserService;
 @Component
 public class CreateNewUser {
 	private User user = new User();
-
+	
 	@Autowired
 	private UserService userService;
 
@@ -25,5 +25,13 @@ public class CreateNewUser {
 		String resp = "";
 		resp = userService.createUser(user);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, null, resp));
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

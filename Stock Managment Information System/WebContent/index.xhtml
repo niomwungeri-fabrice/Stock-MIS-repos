@@ -12,14 +12,28 @@
 </h:head>
 <h:body style="background-color">
 	<div class="container">
-		<div class="jumbotron" style="background-color: #3790fc" />
+		<div class="jumbotron" style="background-color: #3790fc;" />
 		<h:form>
+			<p:panel>
+				<h:panelGrid columns="6">
+					<p:watermark value="Username" for="fNameLogin" />
+					<p:inputText value="" id="fNameLogin" />
+					
+					<p:watermark value="Password" for="passwordLogin" />
+					<p:inputText value="" id="passwordLogin" />
+					
+					<h:outputLabel value="" />
+					<p:commandButton value="" action="" />
+				</h:panelGrid>
+			</p:panel>
+
 			<div class="row">
 				<div class="col-xs-6">
 					<p:panel header="Register">
 						<h:panelGrid columns="3">
 							<p:watermark value="First name" for="firstname" />
-							<p:inputText id="firstname" value="" required="true" />
+							<p:inputText id="firstname"
+								value="#{createNewUser.user.firstName}" required="true" />
 						</h:panelGrid>
 					</p:panel>
 				</div>
