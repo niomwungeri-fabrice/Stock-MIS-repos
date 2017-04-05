@@ -38,7 +38,7 @@ public class UserService extends TransactionAware {
 
 	public User findById(String username) {
 		try {
-			return userDao.findOne(username);
+			return userDao.f
 		} catch (Exception e) {
 			throw new ManageExceptions("No user found!");
 		}

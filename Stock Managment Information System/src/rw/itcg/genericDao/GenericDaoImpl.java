@@ -11,7 +11,7 @@ import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-public abstract class GenericDaoImpl<G extends Serializable> implements GenericDao<G> {
+public  class GenericDaoImpl<G extends Serializable> implements GenericDao<G> {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -43,12 +43,6 @@ public abstract class GenericDaoImpl<G extends Serializable> implements GenericD
 		return g;
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public G findOne(String id) {
-		return (G) sessionfactory().get(this.type, id);
-	}
-
 	@Override
 	public Long countRows() {
 		return (Long) sessionfactory().createCriteria(this.type).setProjection(Projections.rowCount()).uniqueResult();
@@ -65,6 +59,12 @@ public abstract class GenericDaoImpl<G extends Serializable> implements GenericD
 	@Override
 	public List<G> findAll() {
 		return sessionfactory().createCriteria(this.type).list();
+	}
+
+	@Override
+	public G findOne(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -20,6 +20,11 @@ public class UserDao extends GenericDaoImpl<User> {
 		return query.list();
 	}
 
+	public User findById() {
+		Query query = sessionfactory().createQuery("FROM User u where u.username:=username");
+		return (User) query.uniqueResult();
+	}
+
 	public boolean isUserRegister(String username) {
 		Query query = sessionfactory().createQuery("select 'A' from User u where username=:username");
 		query.setParameter("username", username);
