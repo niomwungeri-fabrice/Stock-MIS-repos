@@ -24,9 +24,16 @@ public class Authentication {
 	private String username;
 	private String password;
 
-	public void authenticate() {
+	public String authenticate() {
 		User user = userService.findById(this.username);
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, null, "Login"));
+		if (user.getUsername().equals(this.username) && user.getPassword().equals(this.password)) {
+			return "home";
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_INFO, null, "Login"));
+			return "index";
+		}
+
 	}
 
 	public String getUsername() {

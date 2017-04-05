@@ -20,15 +20,12 @@ public class TestMyApp {
 			@SuppressWarnings("resource")
 			ApplicationContext context = new ClassPathXmlApplicationContext("classpath:rw/itcg/config/app-context.xml");
 			UserService userService = context.getBean(UserService.class);
-			User user = new User();
-			user.setFirstName("Mutangana");
-			user.setLastName("Jean D'amour");
-			user.setPassword("123456");
-			user.setPhone("+250783741085");
-			user.setState(true);
-			user.setUsername("fab");
-			String d = userService.createUser(user);
-			System.out.println(d);
+			User u = userService.findById("mtee");
+			if (u == null) {
+				System.out.println("null");
+			} else {
+				System.out.println(u.getFirstName());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
