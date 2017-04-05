@@ -31,6 +31,7 @@
 			<div class="row">
 				<div class="col-xs-6">
 					<p:panel header="Register">
+						
 						<h:panelGrid columns="3">
 
 							<p:watermark value="First name" for="firstname" />
@@ -59,13 +60,14 @@
 								required="true" style="margin-bottom:7px" />
 							<p:message for="phone" />
 							<h:outputLabel value="" />
-							<p:commandButton action="#{createNewUser.register}" value="Register" />
+							<p:commandButton action="#{createNewUser.register}"
+								value="Register" />
 						</h:panelGrid>
 					</p:panel>
 				</div>
 				<div class="col-xs-6">
 					<p:fieldset legend="Quote of the Day!" style="margin-top:100px">
-						<h:outputLabel value="" />
+						<p:outputLabel value="#{generateQuotes.quotes}" />
 					</p:fieldset>
 				</div>
 			</div>
