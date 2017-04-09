@@ -32,7 +32,8 @@ public class GenerateQuotes {
 				"Success means doing the best we can with what we have. Success is the doing, not the getting; in the trying, not the triumph. Success is a personal standard, reaching for the highest that is in us, becoming all that we can be. – Zig Ziglar",
 				"To me, job titles don’t matter. Everyone is in sales. It’s the only way we stay in business. – Harvey Mackay",
 				"Remember that failure is an event, not a person. Yesterday ended last night. – Zig Ziglar",
-				"I have never worked a day in my life without selling. If I believe in something, I sell it, and I sell it hard. – Estée Lauder" };
+				"I have never worked a day in my life without selling. If I believe in something, I sell it, and I sell it hard. – Estée Lauder",
+				"If you are not taking care of your customer, your competitor will. – Bob Hooey"};
 		Random rand = new Random();
 		int lenngth = rand.nextInt(array.length);
 		return array[lenngth];
