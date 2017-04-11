@@ -16,19 +16,19 @@ public class UserDao extends GenericDaoImpl<User> {
 
 	@SuppressWarnings("unchecked")
 	public List<User> findByIdList(String username) {
-		Query query = sessionfactory().createQuery("FROM User u where u.username:=username");
-		query.setString(0, username);
+		Query query = sessionfactory().createQuery("select u from User u where u.username = :username");
+		query.setParameter("username", username);
 		return query.list();
 	}
 
 	public User findById(String username) {
-		Query query = sessionfactory().createQuery("FROM User u where u.username:=username");
-		query.setString(0, username);
+		Query query = sessionfactory().createQuery("select u from User u where u.username = :username");
+		query.setParameter("username", username);
 		return (User) query.uniqueResult();
 	}
 
 	public boolean isUserRegister(String username) {
-		Query query = sessionfactory().createQuery("select 'A' from User u where username=:username");
+		Query query = sessionfactory().createQuery("select 'A' from User u where username = :username");
 		query.setParameter("username", username);
 		return query.list().size() > 0;
 	}

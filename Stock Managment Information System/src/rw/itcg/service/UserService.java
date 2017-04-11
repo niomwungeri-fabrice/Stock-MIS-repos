@@ -18,6 +18,10 @@ public class UserService extends TransactionAware {
 	@Autowired
 	private UserDao userDao;
 
+	public boolean checkUserExistence(String username) {
+		return userDao.isUserRegister(username);
+	}
+
 	public String createUser(User user) {
 		try {
 			userDao.save(user);
@@ -32,6 +36,7 @@ public class UserService extends TransactionAware {
 		try {
 			return userDao.findAll();
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new ManageExceptions("No user found!");
 		}
 	}
@@ -40,6 +45,7 @@ public class UserService extends TransactionAware {
 		try {
 			return userDao.findById(username);
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new ManageExceptions("No user found!");
 		}
 	}

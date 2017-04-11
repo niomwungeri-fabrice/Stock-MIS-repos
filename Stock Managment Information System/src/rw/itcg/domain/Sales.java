@@ -17,21 +17,13 @@ public class Sales extends GenericDomain {
 	private static final long serialVersionUID = 1L;
 	
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int sale_id;
+	private int salesId;
 
 	@ManyToOne
-	@JoinColumn(name = "sales_id")
+	@JoinColumn(name = "userId")
 	private User user;
 	
 	private Date date = new Date();
-
-	public int getSale_id() {
-		return sale_id;
-	}
-
-	public void setSale_id(int sale_id) {
-		this.sale_id = sale_id;
-	}
 
 	public User getUser() {
 		return user;

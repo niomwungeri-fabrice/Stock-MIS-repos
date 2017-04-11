@@ -14,9 +14,25 @@ public class Product extends GenericDomain {
 	@Column(unique = true)
 	private String productId;
 	private String productName;
-	private String desc;
-	private double pricePerItem;
-	private double quantity;
+	private String productDesc;
+	private Double pricePerItem;
+	private Double quantity;
+
+	public String getProductDesc() {
+		return productDesc;
+	}
+
+	public void setProductDesc(String productDesc) {
+		this.productDesc = productDesc;
+	}
+
+	public void setPricePerItem(Double pricePerItem) {
+		this.pricePerItem = pricePerItem;
+	}
+
+	public void setQuantity(Double quantity) {
+		this.quantity = quantity;
+	}
 
 	public double getQuantity() {
 		return quantity;
@@ -40,14 +56,6 @@ public class Product extends GenericDomain {
 
 	public void setProductName(String productName) {
 		this.productName = productName;
-	}
-
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
 	}
 
 	public double getPricePerItem() {

@@ -20,9 +20,10 @@ public class TestMyApp {
 			@SuppressWarnings("resource")
 			ApplicationContext context = new ClassPathXmlApplicationContext("classpath:rw/itcg/config/app-context.xml");
 			UserService userService = context.getBean(UserService.class);
-			User u = userService.findById("niomwungeri.fabrice");
-			System.out.println(u.getFirstName());
-			
+			User user = userService.findById("niomwungeri.fabrice");
+			System.out.println(user.getPassword());
+			System.out.println(userService.checkUserExistence("niomwungeri.fabrice"));
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
