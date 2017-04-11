@@ -14,6 +14,10 @@ import rw.itcg.genericDao.GenericDaoImpl;
 @Repository
 public class UserDao extends GenericDaoImpl<User> {
 
+	public boolean checkUserExistence(String username) {
+		return isUserRegister(username);
+	}
+
 	@SuppressWarnings("unchecked")
 	public List<User> findByIdList(String username) {
 		Query query = sessionfactory().createQuery("select u from User u where u.username = :username");

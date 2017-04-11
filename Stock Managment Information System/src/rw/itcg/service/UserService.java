@@ -18,20 +18,20 @@ public class UserService extends TransactionAware {
 	@Autowired
 	private UserDao userDao;
 
-	public boolean checkUserExistence(String username) {
-		return userDao.isUserRegister(username);
-	}
-
 	public String createUser(User user) {
 		try {
-			userDao.save(user);
-			return "User " + user.getFirstName() + " created successfully";
+			if (userDao.checkUserExistence(user.getUsername())) {
+				return "User '" + user.getUsername() + "' Already Exist";
+			} else {
+				User u = userDao.save(user);
+				return "User " + u.getFirstName() + " created successfully";
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ManageExceptions("User " + user.getUsername() + " Already exist");
 		}
 	}
-
 	public List<User> findAll() {
 		try {
 			return userDao.findAll();
