@@ -25,15 +25,22 @@ public class Authentication {
 	private String password;
 
 	public String authenticate() {
-		User user = userService.findById(this.username);
-		if (user.getUsername().equals(this.username) && user.getPassword().equals(this.password)) {
-			return "home";
-		} else {
+		String resp = "";
+		try {
+			User user = userService.findById(this.username);
+			if (user.getUsername().equals(this.username) && user.getPassword().equals(this.password)) {
+				resp = "home";
+			} else {
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_INFO, null, "Login"));
+				resp = "index";
+			}
+		} catch (Exception e) {
+			resp = "Error" + e.getMessage();
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, null, "Login"));
-			return "index";
+					new FacesMessage(FacesMessage.SEVERITY_INFO, null, resp));
 		}
-
+		return resp;
 	}
 
 	public String getUsername() {

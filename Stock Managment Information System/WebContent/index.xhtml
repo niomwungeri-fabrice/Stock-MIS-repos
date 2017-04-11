@@ -19,12 +19,12 @@
 				<div class="col-xs-5">
 					<p:messages />
 					<p:watermark value="Username" for="fNameLogin" />
-					<p:inputText value="#{authentication.username}" id="fNameLogin" />
+					<p:inputText value="#{authentication.username}" id="fNameLogin" required="true"/>
 					<p:watermark value="Password" for="passwordLogin" />
-					<p:password value="#{authentication.password}" id="passwordLogin"
+					<p:password value="#{authentication.password}" id="passwordLogin" required="true"
 						style="margin-left:7px;margin-right:7px" />
 					<p:commandButton value="Login" style="margin-right:7px;"
-						action="#{authentication.authenticate}" process="@this"
+						 process="@this" action="#{authentication.authenticate}"
 						update="loginForm" />
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 						<h:panelGrid columns="3">
 
 							<p:watermark value="First name*" for="firstname" />
-							<p:inputText id="firstname"
+							<p:inputText id="firstname" label="Firstname"
 								value="#{createNewUser.user.firstName}" required="true"
 								style="margin-bottom:7px" />
 							<p:message for="firstname" />
@@ -49,17 +49,17 @@
 							<p:message for="lastname" />
 
 							<p:watermark value="Username*" for="username" />
-							<p:inputText value="#{createNewUser.user.username}" id="username"
+							<p:inputText value="#{createNewUser.user.username}" id="username" label="Username"
 								required="true" style="margin-bottom:7px" />
 							<p:message for="username" />
 
 							<p:watermark value="Password*" for="password" />
-							<p:password value="#{createNewUser.user.password}" id="password"
+							<p:password value="#{createNewUser.user.password}" id="password" label="Password"
 								feedback="true" required="true" style="margin-bottom:7px" />
 							<p:message for="password" />
 
 							<p:watermark value="confirm - Password*" for="confPassword" />
-							<p:password value="#{createNewUser.user.password}"
+							<p:password value="#{createNewUser.user.password}" label="Confirm Password"
 								id="confPassword" required="true" style="margin-bottom:7px"
 								match="password" />
 							<p:ajax update="confirmMsg" event="keyup" />
@@ -67,7 +67,7 @@
 
 							<p:watermark value="Phone*" for="phone" />
 							<p:inputText value="#{createNewUser.user.phone}" id="phone"
-								required="true" style="margin-bottom:7px" />
+								required="true" style="margin-bottom:7px" label="Phone" />
 							<p:message for="phone" />
 							<h:outputLabel value="" />
 							<p:commandButton action="#{createNewUser.register}"
@@ -78,7 +78,6 @@
 			</div>
 			<div class="col-xs-6">
 				<p:fieldset legend="Quote of the Day!" style="margin-top:70px" toggleable="true"  >
-
 					<p:outputLabel value="#{generateQuotes.quotes}" />
 				</p:fieldset>
 			</div>

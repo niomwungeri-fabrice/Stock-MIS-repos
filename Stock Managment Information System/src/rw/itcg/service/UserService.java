@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import rw.itcg.dao.UserDao;
 import rw.itcg.domain.User;
 import rw.itcg.exceptionHandling.ManageExceptions;
-import rw.itcg.genericDao.GenericDaoImpl;
 
 /**
  * @author NIYOMWUNGERI Mar 29, 2017, 4:24:13 PM
@@ -16,7 +16,7 @@ import rw.itcg.genericDao.GenericDaoImpl;
 public class UserService extends TransactionAware {
 
 	@Autowired
-	private GenericDaoImpl<User> userDao;
+	private UserDao userDao;
 
 	public String createUser(User user) {
 		try {
@@ -38,7 +38,7 @@ public class UserService extends TransactionAware {
 
 	public User findById(String username) {
 		try {
-			return userDao.f
+			return userDao.findById(username);
 		} catch (Exception e) {
 			throw new ManageExceptions("No user found!");
 		}

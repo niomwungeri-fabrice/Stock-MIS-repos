@@ -60,11 +60,4 @@ public  class GenericDaoImpl<G extends Serializable> implements GenericDao<G> {
 	public List<G> findAll() {
 		return sessionfactory().createCriteria(this.type).list();
 	}
-
-	@Override
-	public G findOne(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

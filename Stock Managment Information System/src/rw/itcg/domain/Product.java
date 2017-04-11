@@ -15,7 +15,7 @@ public class Product extends GenericDomain {
 	private String productId;
 	private String productName;
 	private String desc;
-	private double unitPrice;
+	private double pricePerItem;
 	private double quantity;
 
 	public double getQuantity() {
@@ -50,12 +50,12 @@ public class Product extends GenericDomain {
 		this.desc = desc;
 	}
 
-	public double getUnitPrice() {
-		return unitPrice;
+	public double getPricePerItem() {
+		return pricePerItem;
 	}
 
-	public void setUnitPrice(double unitPrice) {
-		this.unitPrice = unitPrice;
+	public void setPricePerItem(double pricePerItem) {
+		this.pricePerItem = pricePerItem;
 	}
 
 }

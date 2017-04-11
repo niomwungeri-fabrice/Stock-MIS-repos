@@ -10,8 +10,6 @@ public interface GenericDao<G> {
 
 	G delete(final G g);
 
-	G findOne(final String id);
-
 	List<G> findAll();
 
 	Long countRows();
