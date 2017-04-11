@@ -1,11 +1,51 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-<h:head></h:head> 
-<body> 
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap-theme.css" />
+</h:head>
+<h:body>
+	<div class="container" style="margin-top: 10px">
+		<div class="jumbotron" style="background-color: #3790fc;" />
+		<div class="row">
+			<p:menubar style="margin-bottom:7px; margin-top: 15px">
+				<p:submenu label="Faaaaaa" icon="fa fa-user">
+					<p:menuitem value="Change Password" url="changePassword.xhtml" />
+					<p:menuitem value="Home" url="index.xhtml" />
+				</p:submenu>
+				<f:facet name="options">
+					<h:outputLabel value="Welcome, Fab weeeeee" />
+				</f:facet>
+			</p:menubar>
+			<div class="col-xs-3"></div>
+			<div class="col-xs-9">
+				<h:form>
+					<p:tabView>
+						<p:tab title="Product">
+							<p:dataTable>
 
-</body> 
+							</p:dataTable>
+						</p:tab>
+						<p:tab title="Stock">
+							<h:panelGrid columns="2" cellpadding="10">
+								<h:outputText value="Francis Ford Coppola's legendary..." />
+							</h:panelGrid>
+						</p:tab>
+						<p:tab title="User">
+							<h:panelGrid columns="2" cellpadding="10">
+								<h:outputText value="After a break of more than 15 years..." />
+							</h:panelGrid>
+						</p:tab>
+					</p:tabView>
+				</h:form>
+			</div>
+		</div>
+	</div>
+</h:body>
 </html>

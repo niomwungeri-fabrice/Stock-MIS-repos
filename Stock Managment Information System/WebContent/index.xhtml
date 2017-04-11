@@ -9,9 +9,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 	<h:outputStylesheet library="css" name="bootstrap-theme.css" />
+
 </h:head>
 <h:body>
 	<div class="container" style="margin-top: 10px">
+
 		<div class="jumbotron" style="background-color: #3790fc;" />
 		<h:form id="loginForm">
 			<div class="row">
@@ -79,9 +81,10 @@
 				</p:panel>
 			</div>
 			<div class="col-xs-6">
-				<p:fieldset legend="Quote of the Day!" style="margin-top:70px"
-					toggleable="true">
-					<p:outputLabel value="#{generateQuotes.quotes}" />
+				<p:fieldset legend="Quote of the Day"
+					style="margin-top:70px;font-weight: bold;">
+					<h:outputText value="#{generateQuotes.quotes}"
+						style="font-size:20px;" />
 				</p:fieldset>
 			</div>
 		</div>
