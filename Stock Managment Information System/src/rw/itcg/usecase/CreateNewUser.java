@@ -16,6 +16,7 @@ import rw.itcg.service.UserService;
 @ManagedBean
 @Component
 public class CreateNewUser {
+	
 	private User user = new User();
 	
 	@Autowired

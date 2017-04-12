@@ -17,25 +17,41 @@
 		<div class="jumbotron" style="background-color: #3790fc;" />
 		<h:form id="loginForm">
 			<div class="row">
-				<div class="col-xs-7"></div>
-				<div class="col-xs-5">
-					<p:messages />
+				<div class="col-xs-1" />
+				<p:growl id="growl" />
+				<h:panelGrid columns="3">
 					<p:watermark value="Username" for="fNameLogin" />
 					<p:inputText value="#{authentication.username}" id="fNameLogin"
-						required="true" />
+						required="true" style="margin-bottom:7px"  />
+					<h:outputLabel value="" />
+					
 					<p:watermark value="Password" for="passwordLogin" />
 					<p:password value="#{authentication.password}" id="passwordLogin"
-						required="true" style="margin-left:7px;margin-right:7px" />
-					<p:commandButton value="Login" style="margin-right:7px;"
-						process="@this" action="#{authentication.authenticate}"
-						update="loginForm" />
-				</div>
+						required="true" style="margin-bottom:7px" />
+					<h:outputLabel value="" />
+					<h:outputLabel value="" />
+					<p:commandLink action="forgetPassword" value="Forgot password?" />
+					<h:outputLabel value="" />
+					<h:outputLabel value="" />
+					<p:commandButton value="Sign in" process="@this"
+						style="margin-top:7px" action="#{authentication.authenticate}"
+						update="loginForm:growl" />
+				</h:panelGrid>
 			</div>
+			<div class="col-xs-11" />
 		</h:form>
 		<p:separator />
 		<div class="row">
 			<div class="col-xs-6">
-				<p:panel header="Create account" footer="* Indicate required fields">
+				<p:fieldset legend="Quote of the Day"
+					style="margin-top:70px;font-weight: bold;">
+					<h:outputText value="#{generateQuotes.quotes}"
+						style="font-size:20px;" />
+				</p:fieldset>
+			</div>
+			<div class="col-xs-6">
+				<p:panel header="Create account"
+					footer="* Indicates  a required field">
 					<h:form id="registerForm">
 						<p:messages />
 						<h:panelGrid columns="3">
@@ -75,17 +91,11 @@
 							<p:message for="phone" />
 							<h:outputLabel value="" />
 							<p:commandButton action="#{createNewUser.register}"
-								value="Register" update="registerForm" />
+								value="Sign up" update="registerForm" />
 						</h:panelGrid>
 					</h:form>
 				</p:panel>
-			</div>
-			<div class="col-xs-6">
-				<p:fieldset legend="Quote of the Day"
-					style="margin-top:70px;font-weight: bold;">
-					<h:outputText value="#{generateQuotes.quotes}"
-						style="font-size:20px;" />
-				</p:fieldset>
+
 			</div>
 		</div>
 	</div>

@@ -32,13 +32,13 @@ public class Authentication {
 				resp = "home";
 			} else {
 				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_INFO, null, "Login"));
+						new FacesMessage(FacesMessage.SEVERITY_INFO, "Login", null));
 				resp = "index";
 			}
 		} catch (Exception e) {
 			resp = "Error" + e.getMessage();
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, null, resp));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, resp, null));
 		}
 		return resp;
 	}

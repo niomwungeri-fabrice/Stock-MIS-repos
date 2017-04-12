@@ -20,18 +20,25 @@ public class UserService extends TransactionAware {
 
 	public String createUser(User user) {
 		try {
+			User userDb = userDao.findById(user.getUsername());
+			if (userDb != null) {
+				if (userDb.getPhone().equals(user.getPhone())) {
+					return "Phone number '" + user.getPhone() + " ' already registered!";
+				}
+			}
 			if (userDao.checkUserExistence(user.getUsername())) {
 				return "User '" + user.getUsername() + "' Already Exist";
+
 			} else {
 				User u = userDao.save(user);
 				return "User " + u.getFirstName() + " created successfully";
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ManageExceptions("User " + user.getUsername() + " Already exist");
 		}
 	}
+
 	public List<User> findAll() {
 		try {
 			return userDao.findAll();
@@ -47,6 +54,22 @@ public class UserService extends TransactionAware {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new ManageExceptions("No user found!");
+		}
+	}
+
+	public String changePassword(String username) {
+		try {
+			User user = userDao.findById(username);
+			if (user == null) {
+				return "User name not found";
+			} else {
+				userDao.update(user);
+				return "Password Changed successfully";
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ManageExceptions(e.getMessage());
 		}
 	}
 }
