@@ -16,7 +16,7 @@ import rw.itcg.service.UserService;
 
 @ManagedBean
 @Component
-public class Authentication {
+public class Authenticationn {
 
 	@Autowired
 	private UserService userService;
@@ -32,14 +32,14 @@ public class Authentication {
 				resp = "home";
 			} else {
 				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_INFO, "Login", null));
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login Failed!", null));
 				resp = "index";
 			}
 		} catch (Exception e) {
-			resp = "Error" + e.getMessage();
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, resp, null));
+			e.printStackTrace();
+			resp = "Error>>>" + e.getMessage();
 		}
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, resp, null));
 		return resp;
 	}
 
