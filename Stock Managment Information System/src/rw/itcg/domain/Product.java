@@ -15,8 +15,8 @@ public class Product extends GenericDomain {
 	private String productId;
 	private String productName;
 	private String productDesc;
-	private Double pricePerItem;
-	private Double quantity;
+	private double pricePerItem;
+	private double quantity;
 
 	public String getProductDesc() {
 		return productDesc;
@@ -26,12 +26,12 @@ public class Product extends GenericDomain {
 		this.productDesc = productDesc;
 	}
 
-	public void setPricePerItem(Double pricePerItem) {
-		this.pricePerItem = pricePerItem;
+	public double getPricePerItem() {
+		return pricePerItem;
 	}
 
-	public void setQuantity(Double quantity) {
-		this.quantity = quantity;
+	public void setPricePerItem(double pricePerItem) {
+		this.pricePerItem = pricePerItem;
 	}
 
 	public double getQuantity() {
@@ -56,14 +56,6 @@ public class Product extends GenericDomain {
 
 	public void setProductName(String productName) {
 		this.productName = productName;
-	}
-
-	public double getPricePerItem() {
-		return pricePerItem;
-	}
-
-	public void setPricePerItem(double pricePerItem) {
-		this.pricePerItem = pricePerItem;
 	}
 
 }

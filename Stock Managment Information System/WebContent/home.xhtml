@@ -40,12 +40,15 @@
 									<p:inputText id="productName"
 										value="#{createNewProduct.product.productName}"
 										required="true" />
+										<br />
+									<h:outputLabel value="" />
 
 									<p:outputLabel value="Quantiy:" />
 									<br />
-									<p:watermark value="Product Quantity" for="quantity" />
-									<p:inputText id="quantity"
-										value="#{createNewProduct.product.quantity}" required="true" />
+									<p:watermark value="Product Quantity" for="pQuantity" />
+									<p:inputText id="pQuantity"
+										value="#{createNewProduct.product.pricePerItem}"
+										required="true" />
 
 								</h:panelGrid>
 							</p:panel>
