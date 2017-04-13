@@ -16,7 +16,7 @@ import rw.itcg.service.UserService;
 
 @ManagedBean
 @Component
-public class Authenticationn {
+public class Authentication {
 
 	@Autowired
 	private UserService userService;
@@ -24,7 +24,7 @@ public class Authenticationn {
 	private String username;
 	private String password;
 
-	public String authenticate() {
+	public String getAuthenticated() {
 		String resp = "";
 		try {
 			User user = userService.findById(this.username);

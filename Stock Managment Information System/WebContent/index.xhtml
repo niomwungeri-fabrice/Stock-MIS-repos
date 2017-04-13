@@ -20,13 +20,13 @@
 				<div class="col-xs-1" />
 				<p:growl id="growl" />
 				<h:panelGrid columns="3">
-					<p:watermark value="Username" for="fNameLogin" />
-					<p:inputText value="#{authenticationn.username}" id="fNameLogin"
+					<p:watermark value="Username" for="usernameLogin" />
+					<p:inputText value="#{authentication.username}" id="usernameLogin"
 						required="true" style="margin-bottom:7px"  />
 					<h:outputLabel value="" />
 					
 					<p:watermark value="Password" for="passwordLogin" />
-					<p:password value="#{authenticationn.password}" id="passwordLogin"
+					<p:password value="#{authentication}" id="passwordLogin"
 						required="true" style="margin-bottom:7px" />
 					<h:outputLabel value="" />
 					<h:outputLabel value="" />
@@ -34,7 +34,7 @@
 					<h:outputLabel value="" />
 					<h:outputLabel value="" />
 					<p:commandButton value="Sign in" process="@this"
-						style="margin-top:7px" action="#{authenticationn.authenticate}"
+						style="margin-top:7px" action="#{authenticationn.authenticated}"
 						update="loginForm:growl" />
 				</h:panelGrid>
 			</div>
