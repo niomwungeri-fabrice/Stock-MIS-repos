@@ -35,21 +35,21 @@ public class Authentication implements Serializable {
 		try {
 			User user = userService.findById(this.username);
 			if (user != null) {
-				if (user.getUsername().equals(this.username) && user.getPassword().equals(this.password)) {
+				if (user.getUsername().equals(this.username)) {
 					return "home";
 				} else {
 					FacesContext.getCurrentInstance().addMessage(null,
-							new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error! Contact Administrator", null));
+							new FacesMessage(FacesMessage.SEVERITY_INFO, "Error! Contact Administrator", null));
 					return "index";
 				}
 			} else {
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
 						"Are you register ? User '" + this.username + "' not found!", null));
 				return "index";
 			}
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error! Contact Administrator", null));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Error! Contact Administrator", "Error! Contact Administrator"));
 			return "index";
 		}
 

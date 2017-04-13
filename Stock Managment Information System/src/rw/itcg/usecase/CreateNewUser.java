@@ -16,16 +16,15 @@ import rw.itcg.service.UserService;
 @ManagedBean
 @Component
 public class CreateNewUser {
-	
+
 	private User user = new User();
-	
+
 	@Autowired
 	private UserService userService;
 
 	public void register() {
-		String resp = "";
-		resp = userService.createUser(user);
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, null, resp));
+		String resp = userService.createUser(user);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, resp, resp));
 	}
 
 	public User getUser() {

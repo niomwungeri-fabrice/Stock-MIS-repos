@@ -14,7 +14,8 @@
 	<div class="container" style="margin-top: 10px">
 		<div class="jumbotron" style="background-color: #3790fc;" />
 		<div class="row">
-			<p:commandButton action="index" value="Logout" icon="fa fa-sign-out" />
+			<p:commandButton action="index" value="Logout"
+				icon="fa fa-arrow-circle-o-left" />
 			<p:menubar style="margin-bottom:7px; margin-top: 15px">
 				<p:submenu label="Faaaaaa" icon="fa fa-user">
 					<p:menuitem value="Change Password" url="changePassword.xhtml" />
@@ -27,6 +28,28 @@
 			<h:form>
 				<p:tabView>
 					<p:tab title="Product">
+						<p:commandButton value="New Product" type="button"
+							onclick="PF('newProduct').show();" icon="fa fa-plus-circle"
+							style="margin-bottom:7px" />
+						<p:dialog header="Stock" widgetVar="newProduct" modal="true">
+							<p:panel header="Add new product" style="width:400px">
+								<h:panelGrid columns="3">
+									<p:outputLabel value="Product Name:" />
+									<br />
+									<p:watermark value="Product name" for="productName" />
+									<p:inputText id="productName"
+										value="#{createNewProduct.product.productName}"
+										required="true" />
+
+									<p:outputLabel value="Quantiy:" />
+									<br />
+									<p:watermark value="Product Quantity" for="quantity" />
+									<p:inputText id="quantity"
+										value="#{createNewProduct.product.quantity}" required="true" />
+
+								</h:panelGrid>
+							</p:panel>
+						</p:dialog>
 						<p:dataTable>
 							<p:column headerText="Product Id">
 

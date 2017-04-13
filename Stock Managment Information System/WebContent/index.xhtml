@@ -34,8 +34,8 @@
 					<h:outputLabel value="" />
 					<h:outputLabel value="" />
 					<p:commandButton value="Sign in" process="@this"
-						style="margin-top:7px" action="#{authentication.authenticate()}" icon="fa fa-sign-in"
-						update="loginForm:growl" />
+						style="margin-top:7px" action="#{authentication.authenticate()}"
+						icon="fa fa-sign-in" update="loginForm:growl" />
 				</h:panelGrid>
 			</div>
 			<div class="col-xs-11" />
@@ -54,41 +54,48 @@
 					footer="* Indicates  a required field">
 					<h:form id="registerForm">
 						<p:messages />
-						<h:panelGrid columns="3">
+						<h:panelGrid columns="4">
 
 							<p:watermark value="First name*" for="firstname" />
 							<p:inputText id="firstname" label="Firstname"
 								value="#{createNewUser.user.firstName}" required="true"
-								style="margin-bottom:7px" />
+								style="margin-bottom:7px" title="Enter your first name" />
 							<p:message for="firstname" />
+							<p:tooltip for="firstname" showEvent="focus" hideEvent="blur" />
 
 							<p:watermark value="Last name" for="lastname" />
 							<p:inputText value="#{createNewUser.user.lastName}" id="lastname"
-								style="margin-bottom:7px" />
+								style="margin-bottom:7px" title="Enter your last name" />
 							<p:message for="lastname" />
+							<p:tooltip for="lastname" showEvent="focus" hideEvent="blur" />
 
 							<p:watermark value="Username*" for="username" />
 							<p:inputText value="#{createNewUser.user.username}" id="username"
-								label="Username" required="true" style="margin-bottom:7px" />
+								label="Username" required="true" style="margin-bottom:7px" title="Enter username or email" />
 							<p:message for="username" />
+							<p:tooltip for="username" showEvent="focus" hideEvent="blur" />
 
 							<p:watermark value="Password*" for="password" />
 							<p:password value="#{createNewUser.user.password}" id="password"
 								label="Password" feedback="true" required="true"
 								style="margin-bottom:7px" />
 							<p:message for="password" />
+							<h:outputLabel value="" />
 
 							<p:watermark value="confirm - Password*" for="confPassword" />
 							<p:password value="#{createNewUser.user.password}"
-								label="Confirm Password" id="confPassword" required="true"
+								label="Confirm Password" id="confPassword"
 								style="margin-bottom:7px" />
 							<p:ajax update="confirmMsg" event="keyup" />
 							<p:message for="confPassword" id="confirmMsg" />
+							<h:outputLabel value="" />
 
 							<p:watermark value="Phone*" for="phone" />
 							<p:inputText value="#{createNewUser.user.phone}" id="phone"
-								required="true" style="margin-bottom:7px" label="Phone" />
+								required="true" style="margin-bottom:7px" label="Phone" title="Enter your phone number e.g. +2507xxxxxxxxx"/>
 							<p:message for="phone" />
+							<p:tooltip for="phone" showEvent="focus" hideEvent="blur" />
+
 							<h:outputLabel value="" />
 							<p:commandButton action="#{createNewUser.register}"
 								value="Sign up" update="registerForm" />
