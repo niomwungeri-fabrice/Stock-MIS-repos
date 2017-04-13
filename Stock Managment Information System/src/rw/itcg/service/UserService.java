@@ -52,7 +52,7 @@ public class UserService extends TransactionAware {
 		try {
 			return userDao.findById(username);
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			throw new ManageExceptions("No user found!");
 		}
 	}

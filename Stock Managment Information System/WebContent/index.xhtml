@@ -22,11 +22,11 @@
 				<h:panelGrid columns="3">
 					<p:watermark value="Username" for="usernameLogin" />
 					<p:inputText value="#{authentication.username}" id="usernameLogin"
-						required="true" style="margin-bottom:7px"  />
+						required="true" style="margin-bottom:7px" />
 					<h:outputLabel value="" />
-					
+
 					<p:watermark value="Password" for="passwordLogin" />
-					<p:password value="#{authentication}" id="passwordLogin"
+					<p:password value="#{authentication.password}" id="passwordLogin"
 						required="true" style="margin-bottom:7px" />
 					<h:outputLabel value="" />
 					<h:outputLabel value="" />
@@ -34,7 +34,7 @@
 					<h:outputLabel value="" />
 					<h:outputLabel value="" />
 					<p:commandButton value="Sign in" process="@this"
-						style="margin-top:7px" action="#{authenticationn.authenticated}"
+						style="margin-top:7px" action="#{authentication.authenticate()}" icon="fa fa-sign-in"
 						update="loginForm:growl" />
 				</h:panelGrid>
 			</div>

@@ -1,5 +1,7 @@
 package rw.itcg.usecase;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
@@ -16,7 +18,12 @@ import rw.itcg.service.UserService;
 
 @ManagedBean
 @Component
-public class Authentication {
+public class Authentication implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	private UserService userService;
@@ -24,23 +31,28 @@ public class Authentication {
 	private String username;
 	private String password;
 
-	public String getAuthenticated() {
-		String resp = "";
+	public String authenticate() {
 		try {
 			User user = userService.findById(this.username);
-			if (user.getUsername().equals(this.username) && user.getPassword().equals(this.password)) {
-				resp = "home";
+			if (user != null) {
+				if (user.getUsername().equals(this.username) && user.getPassword().equals(this.password)) {
+					return "home";
+				} else {
+					FacesContext.getCurrentInstance().addMessage(null,
+							new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error! Contact Administrator", null));
+					return "index";
+				}
 			} else {
-				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login Failed!", null));
-				resp = "index";
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+						"Are you register ? User '" + this.username + "' not found!", null));
+				return "index";
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
-			resp = "Error>>>" + e.getMessage();
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error! Contact Administrator", null));
+			return "index";
 		}
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, resp, null));
-		return resp;
+
 	}
 
 	public String getUsername() {
