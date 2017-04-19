@@ -15,9 +15,8 @@ import rw.itcg.service.UserService;
 /**
  * @author NIYOMWUNGERI Apr 4, 2017, 1:27:10 PM
  */
-
-@ManagedBean
 @Component
+@ManagedBean
 public class Authentication implements Serializable {
 
 	/**
