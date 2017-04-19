@@ -34,7 +34,7 @@
 					<h:outputLabel value="" />
 					<h:outputLabel value="" />
 					<p:commandButton value="Sign in" process="@this"
-						style="margin-top:7px" action="#{authentication.authenticate()}"
+						style="margin-top:7px" action="#{authentication.authenticate}"
 						icon="fa fa-sign-in" update="loginForm:growl" />
 				</h:panelGrid>
 			</div>
@@ -53,7 +53,7 @@
 				<p:panel header="Create account"
 					footer="* Indicates  a required field">
 					<h:form id="registerForm">
-						<p:messages />
+						<p:messages closable="true"/>
 						<h:panelGrid columns="4">
 
 							<p:watermark value="First name*" for="firstname" />

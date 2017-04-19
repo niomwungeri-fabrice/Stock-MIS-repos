@@ -33,23 +33,23 @@ public class Authentication implements Serializable {
 
 	public String authenticate() {
 		try {
-			User user = userService.findById(this.username);
-			if (user != null) {
-				if (user.getUsername().equals(this.username)) {
-					return "home";
+			User userDB = userService.findById(this.username);
+			if (userDB != null) {
+				if (userDB.getUsername().equals(this.username)) {
+					return "index";
 				} else {
 					FacesContext.getCurrentInstance().addMessage(null,
-							new FacesMessage(FacesMessage.SEVERITY_INFO, "Error! Contact Administrator", null));
+							new FacesMessage(FacesMessage.SEVERITY_INFO, "Username and password you’ve entered doesn’t match", null));
 					return "index";
 				}
 			} else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
-						"Are you register ? User '" + this.username + "' not found!", null));
+						"Error! Contact Administrator", "Error! Contact Administrator"));
 				return "index";
 			}
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Error! Contact Administrator", "Error! Contact Administrator"));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Error!" + e.getMessage(), "Error!" + e.getMessage()));
 			return "index";
 		}
 

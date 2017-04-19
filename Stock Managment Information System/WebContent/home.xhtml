@@ -14,18 +14,18 @@
 	<div class="container" style="margin-top: 10px">
 		<div class="jumbotron" style="background-color: #3790fc;" />
 		<div class="row">
-			<p:commandButton action="index" value="Logout"
-				icon="fa fa-arrow-circle-o-left" />
-			<p:menubar style="margin-bottom:7px; margin-top: 15px">
-				<p:submenu label="Faaaaaa" icon="fa fa-user">
-					<p:menuitem value="Change Password" url="changePassword.xhtml" />
-					<p:menuitem value="Home" url="index.xhtml" />
-				</p:submenu>
-				<f:facet name="options">
-					<h:outputLabel value="Welcome, Fab weeeeee" />
-				</f:facet>
-			</p:menubar>
 			<h:form>
+				<p:commandButton action="index" value="Logout"
+					icon="fa fa-arrow-circle-o-left" />
+				<p:menubar style="margin-bottom:7px; margin-top: 15px">
+					<p:submenu label="Faaaaaa" icon="fa fa-user">
+						<p:menuitem value="Change Password" url="changePassword.xhtml" />
+						<p:menuitem value="Home" url="index.xhtml" />
+					</p:submenu>
+					<f:facet name="options">
+						<h:outputLabel value="Welcome, Fab weeeeee" />
+					</f:facet>
+				</p:menubar>
 				<p:tabView>
 					<p:tab title="Product">
 						<p:commandButton value="New Product" type="button"
@@ -40,7 +40,7 @@
 									<p:inputText id="productName"
 										value="#{createNewProduct.product.productName}"
 										required="true" />
-										<br />
+									<br />
 									<h:outputLabel value="" />
 
 									<p:outputLabel value="Quantiy:" />
